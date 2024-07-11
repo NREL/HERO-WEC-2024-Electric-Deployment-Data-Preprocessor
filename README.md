@@ -19,6 +19,7 @@ This script processes raw measurement data stored in MODAQ format for engineerin
 ```mermaid
 flowchart LR
     subgraph Raw[Raw Data]
+        direction TB
         B[Extract Raw Data]
     end
 
@@ -28,6 +29,8 @@ flowchart LR
         D[Filter Data]
         E[Standardized Partitions]
         F[QC]
+
+        C --> D --> E --> F
     end
 
     subgraph High[Higher Order Data\nVAP]
@@ -36,6 +39,8 @@ flowchart LR
         H[Resample RO Subsystem]
         J[Calculate VAP]
         K[Summarize Data]
+
+        G --> H --> J --> K
     end
 
 Raw --> Std --> High
