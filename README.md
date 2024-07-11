@@ -23,7 +23,7 @@ flowchart LR
         B[Extract Raw Data]
     end
 
-    subgraph Std[Standardized Data]
+    subgraph Std[Standardized Data (Ingest)]
         direction TB
         C[Partition by Time]
         D[Filter Data]
@@ -33,7 +33,7 @@ flowchart LR
         C --> D --> E --> F
     end
 
-    subgraph High[Higher Order Data\nVAP]
+    subgraph High[Higher Order Data (VAP)]
         direction TB
         G[Resample WEC Subsystem]
         H[Resample RO Subsystem]
