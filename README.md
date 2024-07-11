@@ -17,22 +17,23 @@ This script processes raw measurement data stored in MODAQ format for engineerin
 ## Data Flow
 
 ```mermaid
-flowchart TD
+flowchart LR
     subgraph Raw[Raw Data]
         B[Extract Raw Data]
     end
 
     subgraph Std[Standardized Data]
+        direction TB
         C[Partition by Time]
         D[Filter Data]
-        E[Create Standardized Partitions]
-        F[Perform QC on Standardized Partitions]
+        E[Standardized Partitions]
+        F[QC]
     end
 
     subgraph High[Higher Order Data\nVAP]
+        direction TB
         G[Resample WEC Subsystem]
         H[Resample RO Subsystem]
-        I[Concatenate Standardized Partitions]
         J[Calculate VAP]
         K[Summarize Data]
     end
