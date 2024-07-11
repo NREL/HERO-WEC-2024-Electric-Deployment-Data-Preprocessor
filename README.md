@@ -17,7 +17,7 @@ This script processes raw measurement data stored in MODAQ format for engineerin
 ## Data Flow
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph Raw[Raw Data]
         B[Extract Raw Data]
     end
