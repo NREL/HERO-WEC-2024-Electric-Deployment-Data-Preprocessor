@@ -1,0 +1,10 @@
+duckdb==0.10.2
+mhkit==0.7.0
+npTDMS==1.8.0
+numpy==2.0.0
+pandas==1.5.0
+pecos==0.3.1
+rosbags==0.9.22
+rosbags_dataframe==0.9.1
+scipy==1.14.0
+xarray==2022.9.0
