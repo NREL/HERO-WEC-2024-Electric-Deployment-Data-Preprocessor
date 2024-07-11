@@ -23,19 +23,21 @@ flowchart LR
     end
 
     subgraph Std[Standardized Data]
-        B --> C[Partition by Time]
-        C --> D[Filter Data]
-        D --> E[Create Standardized Partitions]
-        E --> F[Perform QC on Standardized Partitions]
+        C[Partition by Time]
+        D[Filter Data]
+        E[Create Standardized Partitions]
+        F[Perform QC on Standardized Partitions]
     end
 
     subgraph High[Higher Order Data\nVAP]
-        F --> G[Resample WEC Subsystem]
-        G --> H[Resample RO Subsystem]
-        H --> I[Concatenate Standardized Partitions]
-        I --> J[Calculate VAP]
-        J --> K[Summarize Data]
+        G[Resample WEC Subsystem]
+        H[Resample RO Subsystem]
+        I[Concatenate Standardized Partitions]
+        J[Calculate VAP]
+        K[Summarize Data]
     end
+
+Raw --> Std --> High
 ```
 
 ## Requirements
