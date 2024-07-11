@@ -1,0 +1,52 @@
+# Data
+# On Shore MODAQ
+data/**/*.tdms
+data/**/*.done
+# On WEC MODAQ - ROS Bagfiles
+data/**/*.db3
+data/**/metadata.yaml
+# On Mooring MODAQ - Black Box csv files
+data/**/*.csv
+# CDIP Datawell Buoy Files
+data/**/*.nc
+# NDBC Weather files
+data/**/*.txt
+# Generated data
+data/**/*.parquet
+data/**/*.xlsx
+
+# Python
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+# MacOS
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
