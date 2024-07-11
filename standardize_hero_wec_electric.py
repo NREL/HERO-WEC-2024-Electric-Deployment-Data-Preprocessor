@@ -33,55 +33,55 @@ if __name__ == "__main__":
     vap_partition_folder = build_script_path("b1_standardized_vap_partition")
     summary_folder = build_script_path("b2_summary_standardized_vap")
 
-    # print("Step 1: Extracting raw data...")
+    print("Step 1: Extracting raw data...")
 
-    # # TDMS Extraction
-    # tdms_folders = ["CurrentAI", "PowRaw", "VoltageAI"]
-    # for folder in tdms_folders:
-    #     print(f"\tExtracting TDMS folder {folder}...")
-    #     extract.extract_modaq_folder(str(Path(raw_folder, folder)), one_to_one_folder)
+    # TDMS Extraction
+    tdms_folders = ["CurrentAI", "PowRaw", "VoltageAI"]
+    for folder in tdms_folders:
+        print(f"\tExtracting TDMS folder {folder}...")
+        extract.extract_modaq_folder(str(Path(raw_folder, folder)), one_to_one_folder)
 
-    # # ROS Bagfile Extraction
-    # extract.extract_remote_daq_bagfiles(
-    #     str(Path(raw_folder, "BuoyBagfiles")), one_to_one_folder
-    # )
+    # ROS Bagfile Extraction
+    extract.extract_remote_daq_bagfiles(
+        str(Path(raw_folder, "BuoyBagfiles")), one_to_one_folder
+    )
 
-    # # CSV Extraction
-    # extract.extract_mooring_daq_folder(
-    #     str(Path(raw_folder, "MooringDAQ")), one_to_one_folder
-    # )
+    # CSV Extraction
+    extract.extract_mooring_daq_folder(
+        str(Path(raw_folder, "MooringDAQ")), one_to_one_folder
+    )
 
-    # # NC Extraction
-    # extract.extract_weather(str(Path(raw_folder, "Weather")), one_to_one_folder)
+    # NC Extraction
+    extract.extract_weather(str(Path(raw_folder, "Weather")), one_to_one_folder)
 
-    # print("Step 2: Partitioning...")
-    # partition.partition_by_time(
-    #     one_to_one_folder, partition_folder, "HERO-WEC-Electric-Deployment"
-    # )
-    # partition.cleanup_partitions(one_to_one_folder, partition_folder)
+    print("Step 2: Partitioning...")
+    partition.partition_by_time(
+        one_to_one_folder, partition_folder, "HERO-WEC-Electric-Deployment"
+    )
+    partition.cleanup_partitions(one_to_one_folder, partition_folder)
 
-    # print("Step 3: Filtering...")
-    # filter.filter_modaq_by_file(partition_folder, filter_folder)
+    print("Step 3: Filtering...")
+    filter.filter_modaq_by_file(partition_folder, filter_folder)
 
-    # print("Step 4: Creating Standardized Paritions")
-    # partition.create_standardized_partitions(
-    #     filter_folder, standardized_partition_folder
-    # )
+    print("Step 4: Creating Standardized Paritions")
+    partition.create_standardized_partitions(
+        filter_folder, standardized_partition_folder
+    )
 
-    # print("\tStep 4a: Performing QC on Standardized Paritions")
-    # qc.qc_standardized_partitions(standardized_partition_folder)
+    print("\tStep 4a: Performing QC on Standardized Paritions")
+    qc.qc_standardized_partitions(standardized_partition_folder)
 
-    # print("\tStep 4b: Resampling WEC Subsystem on Standardized Paritions")
-    # partition.resample_wec_subsystem_partition(standardized_partition_folder)
+    print("\tStep 4b: Resampling WEC Subsystem on Standardized Paritions")
+    partition.resample_wec_subsystem_partition(standardized_partition_folder)
 
-    # print("\tStep 4c: Resampling RO Subsystem on Standardized Paritions")
-    # partition.resample_ro_subsystem_partition(standardized_partition_folder)
+    print("\tStep 4c: Resampling RO Subsystem on Standardized Paritions")
+    partition.resample_ro_subsystem_partition(standardized_partition_folder)
 
-    # print("\tStep 4d: Concatenating Standardized Paritions")
-    # partition.concat_standardized_partitions(standardized_partition_folder)
+    print("\tStep 4d: Concatenating Standardized Paritions")
+    partition.concat_standardized_partitions(standardized_partition_folder)
 
-    # print("Step 5: Calculating VAP...")
-    # vap.vap_standardized_partitions(standardized_partition_folder, vap_partition_folder)
+    print("Step 5: Calculating VAP...")
+    vap.vap_standardized_partitions(standardized_partition_folder, vap_partition_folder)
 
     print("Step 6: Summarizing...")
     summary.summarize_vap_partition(vap_partition_folder, summary_folder)
