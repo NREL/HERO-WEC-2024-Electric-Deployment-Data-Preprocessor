@@ -56,8 +56,8 @@ Raw --> Std --> High
 1. **Clone the repository:**
 
    ```sh
-   git clone https://your-repository-url.git
-   cd your-repository
+   git clone git@github.nrel.gov:Water-Power/HERO-WEC-2024-Electric-Deployment-Data-Preprocessor.git
+   cd HERO-WEC-2024-Electric-Deployment-Data-Preprocessor
    ```
 
 2. **Create a virtual environment:**
