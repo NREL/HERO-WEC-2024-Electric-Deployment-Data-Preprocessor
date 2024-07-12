@@ -56,7 +56,7 @@ Raw --> Std --> High
 1. **Clone the repository:**
 
    ```sh
-   git clone git@github.nrel.gov:Water-Power/HERO-WEC-2024-Electric-Deployment-Data-Preprocessor.git
+   git clone git@github.com:Water-Power/HERO-WEC-2024-Electric-Deployment-Data-Preprocessor.git
    cd HERO-WEC-2024-Electric-Deployment-Data-Preprocessor
    ```
 
